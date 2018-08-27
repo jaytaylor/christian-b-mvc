@@ -1,0 +1,78 @@
+
+10.4 Writing Event Handlers
+
+Let's make the program from the previous section useful by assigning some code to be executed when the user clicks on the Buttons. This means that the program will actually be waiting until the user clicks one of the Buttons, it will respond appropriately to a Button click, and then wait until the user clicks a Button again, responding appropriately, and repeating (wait, respond) until the user clicks the quitButton.
+
+If the user clicks on the incrementButton, we would like to increment a counter and show the current value of the counter in the Label. If the user clicks on the quitButton, we would like our code to quit the whole application. There will be no handler for the Label because that is just used for output; the user clicking on the Label should do nothing.
+
+We need to add three things to class MyFrame:
+
+i) a counter that starts at 0, gets incremented every time the user clicks the incrementButton and whose current value is displayed in the labelForOutput.
+
+ii) code that will be executed when the user clicks the incrementButton. This is called an event handler or a callback method.
+
+iii) code that will be executed when the user clicks the quitButton.
+
+The following version of class MyFrame contains all three of these things:
+
+import tkinter
+
+class MyFrame(tkinter.Frame):
+
+"""
+class MyFrame is a tkinter.Frame that contains two Buttons and a Label. One Button increments a counter that is displayed on the Label and the other Button quits the application.
+"""
+
+    def __init__(self):
+        tkinter.Frame.__init__(self)
+        self.pack()
+        self.counter = 0   # i) initialize the counter
+
+        self.incrementButton = tkinter.Button(self)
+        self.incrementButton["text"] = "Increment"
+        self.incrementButton["command"] = self.addOne
+        # ii) the statement above attaches the event handler addOne() to the incrementButton
+        self.incrementButton.pack({"side": "left"})
+
+        self.labelForOutput = tkinter.Label(self)
+        self.labelForOutput["text"] = 0
+        self.labelForOutput.pack({"side": "left"})
+
+        self.quitButton = tkinter.Button(self)
+        self.quitButton["text"] = "Quit"
+        self.quitButton["command"] =  self.quit
+        # iii) the statement above attaches the event handler self.quit() to the incrementButton
+        self.quitButton.pack({"side": "left"})
+
+    """
+    Python calls this method when the user clicks the incrementButton.
+    This is called an event handler or a callback.
+    """
+    def addOne(self):
+        self.counter = self.counter +1
+        self.labelForOutput["text"] = self.counter
+
+Now that we expect our code to respond to user events, we will need what is referred to as an "event loop". This loop waits for a user event, responds to the user event when it happens, waits for a user event, responds to the user event when it happens, waits….. you can see the repetition –  event loop - here! The __main__ is where the event loop is coded when using tkinter, so the __main__ will now be a little more complicated:
+
+"""
+The main program creates a MyFrame object and waits for the user to push a Button on it. 
+"""
+
+import tkinter
+import myFrame
+
+if __name__ == "__main__":
+    root = tkinter.Tk()     # starts up the tkinter framework
+    view = myFrame.MyFrame()   
+    view.mainloop()     # starts the event loop
+    root.destroy()    # kills the event loop and takes the Frame down
+
+Note that there is still no "loop" that we have to code explicitly. Note also that we never call the method addOne(), but it does execute as you can see when you run this program. Python calls our addOne method when the user clicks the incrementButton. It does this because we have set the "command" entry for our quitButton to be the addOne method.
+
+The tkinter.Tk class is meant to be instantiated and destroyed only once in an application. It makes all the tkinter classes available to your application.
+
+QUESTION:
+
+What class is the "self.quit" method defined in?
+
+Copyright © ,

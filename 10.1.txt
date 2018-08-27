@@ -1,0 +1,26 @@
+
+10.1 tkinter
+
+ 
+
+The rest of this course will be taken up with creating graphical user interfaces (GUIs) for our Python programs. We will be using a library called “tkinter”. tkinter is automatically included in every download of Python 3.x, so you should already have it available for importing.
+
+In order to create a GUI for your Python program using tkinter, you must include
+
+   import tkinter
+
+at the top of any module that uses tkinter.
+
+tkinter is the standard Python interface to the Tk GUI toolkit. There are other Python GUI libraries, but tkinter is the standard and most commonly used. tkinter is multiplatform.
+
+Such a strange name requries some explanation: Tcl stands for “Tool Command Language”; it is a scripting language used for rapid prototyping, scripted applications and automated testing. The Tk Toolkit is an extension to Tcl that provides a GUI library for a variety of operating systems. Each GUI consists of one or more frames, and each frame has a layout manager. tkinter is the Tk Toolkit for Python 3.
+
+The previous version of tkinter was called "Tkinter" (note capitalization). The library has changed a bit, but I couldn't find any references to the newer tkinter. I find the following reference to Tkinter the most helpful:
+
+http://infohost.nmt.edu/tcc/help/pubs/tkinter (Links to an external site.)Links to an external site.
+
+If you find a better reference, please post it to the public Discussion for assignment #10 so that we can all benefit from it!
+
+ 
+
+Copyright © ,

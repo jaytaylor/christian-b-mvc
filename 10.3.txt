@@ -1,0 +1,63 @@
+
+10.3 Placing Controls on a Frame
+
+In object-oriented programming, everything is an object of a class. In particular, the window that will contain the controls is an object made from a class called tkinter.Frame. So our program needs to have a tkinter.Frame object as a variable. The typical way that programs customize a tkinter.Frame object is to write a class that is a subclass of, or inherits from, tkinter.Frame. Here is a class called MyFrame that does just that:
+
+import tkinter
+
+class MyFrame(tkinter.Frame):
+
+"""
+class MyFrame is a tkinter.Frame that contains two Buttons and a Label. One Button increments a counter and the other Button quits. The Label is used to give the user information.
+"""
+
+    def __init__(self):
+        """
+        Places the controls onto the Frame.
+        """
+        tkinter.Frame.__init__(self)   # initializes the superclass
+        self.pack()   #  required in order for the Buttons to show up properly
+
+        #set up the increment Button
+        self.incrementButton = tkinter.Button(self)   
+        self.incrementButton["text"] = "Increment"
+        self.incrementButton.pack({"side": "left"})
+
+        #set up the Label
+        self.labelForOutput = tkinter.Label(self)
+        self.labelForOutput["text"] = 0
+        self.labelForOutput.pack({"side": "left"})
+
+        #set up the quit Button
+        self.quitButton = tkinter.Button(self)
+        self.quitButton["text"] = "Quit"
+        self.quitButton.pack({"side": "left"})
+
+If anyone is writing an application that needs a Frame containing two Buttons and a Label, they can just create an instance of class MyFrame and Python will put a Frame onto the user's screen that contains two Buttons and a Label. Here is such a program:
+
+"""
+This main program creates a MyFrame object that contains two Buttons and a Label. 
+"""
+import myFrame                # contains class MyFrame
+if __name__ == "__main__":
+    root = tkinter.Tk()
+    view = myFrame.MyFrame()  # puts the Frame onto the user's screen 
+    view.mainloop()
+    root.destroy()
+ 
+
+Notes:
+
+• class Button, class Label and class Frame are all defined inside tkinter.
+
+• The Buttons do nothing when the user clicks them at runtime because we have not yet attached any callback method to the Buttons.
+
+• We are passing self to the Button and Label constructor so Python knows that these controls need to be placed onto the MyFrame that is being constructed. In this case, "self" refers to "MyFrame"
+
+• Because we are asking Python to pack the Buttons and the Label at the left side, these controls will start at the left side of the Frame and find room to place them moving to the right.
+
+• It is outside the scope of this course to learn how to place a control exactly where you want it on the Frame.
+
+ 
+
+Copyright © ,

@@ -1,0 +1,83 @@
+
+Assignment #10: "Graphical User Interface"
+
+    Due Mar 20 by 11:59pm Points 5 Submitting a file upload Available until Mar 25 at 11:59pm
+
+Objectives:   
+
+    Implementing a GUI application
+    Using a standard Python library
+    Organizing  your program using the Model/View/Controller architecture 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is the last assignment! Write a Python application that allows the user to convert between temperatures in fahrenheit and temperatures in celsius. Below are the formulas for both, where Tc is temperature in celsius and Tf is temperature in fahrenheit:
+
+    Tc = (5/9)*(Tf-32)
+
+    Tf = ((9/5)*Tc)+32
+
+Before you worry about that, though, design your GUI on paper. It is not obvious what buttons and fields are required. Look on the web to see how others have done this, sketch each screen and how it looks in different states. The font, use of white space and placement of controls is not important; focus on Which controls and what textfields will be present and what each will be used for. Be sure it is obvious to the user what she should do next and what the numbers on the screen mean.
+
+Note that the user has to be able to type in either celsius or fahrenheit temperatures, and to perform repeated conversions in either direction. Try not to limit the user at all.
+
+I recommend that you use tkinter, which comes standard with Python 3.x. However, if you would like to use a different GUI library you can do that.
+
+It is important that you respect the separation between the View and the Model. This means that the classes that put the Frame, Buttons, etc up on the screen cannot contain any of the calculations. Also, the class (or module) that performs the calculations cannot do any of the user interaction. There will be a Controller between the Model and the View that takes care of the communication between the two of them.
+
+As always, you must submit proof that your program runs. It is a little harder to record the run for a GUI like this. Here’s how:
+
+Windows: When the window that contains your output is up, press: <ALT> <Print Screen> to get the screen shot. Do not simply use <Print Screen> because you will end up with a screenshot of your entire desktop. Windows places the screen shot of just your Python application onto the clipboard. Now start Word or Notepad and paste the clipboard into your document. Please submit this document, containing a screen shot of the opening screen and a screen shot of the result of a calculation, together with your source code.
+
+Mac: When the window that contains your output is up, press: <cmd> <shift><4> all at the same time. Mac OS makes your mouse into a marquee that you can drag from top left to bottom right of the screenshot. When you let go, Mac OS puts a file on your desktop called “Screen shot xxxx.png”. Please submit a screen shot of the opening screen and a screen shot of the result of a calculation, together with your source code.
+
+HINTS:
+
+    Make sure that you follow all the program guidelines!
+    It might help to start with the three files attached to the end of the section in the Module for "Week 10: Graphical User Interface"
+    In any case, you should have at least four files in your final submission, the Model, the View, the Controller and the file(s) containing the screen shots.
+    It will take you much longer to put all your code into one class at first, and split up the Model from the View from the Controller later. It is much faster to start with a simpler application spread across three files (M,V and C) and add functionality later to fulfill all the requirements. For example, you can start by implementing an app that only converts from Fahrenheit to Celsius. Just make sure you are clear what your user interface will look like (in a general way) before you start to code!
+    Notice that the Model consists entirely of only two methods. There is no reason for the Model to store any data at all, it will just be called upon to perform one calculation after another, returning the result of the calculation each time. This can be implemented as two standalone functions in their own module, as the built-in math functions are. Or it can be implemented as two static methods inside of a class. For more info about static methods, see the Module "An Object is an Instance of a Class", in the section "A Method that Belongs to the Whole Class".
+
+Rubric
+Rubric for a Graphical User Interface
+Rubric for a Graphical User Interface
+Criteria 	Ratings 	Pts
+This criterion is linked to a Learning Outcome At any point in the use of your application, it is clear which numbers on the screen are in fahrenheit and which are in celcius
+If your user interface is incorrect, it might have an old fahrenheit value and a new celsius value, indicating an incorrect caculation
+	
+1.0 pts
+	
+0.0 pts
+	
+1.0 pts
+This criterion is linked to a Learning Outcome The calculation performed is the correct one
+	
+1.0 pts
+	
+0.0 pts
+	
+1.0 pts
+This criterion is linked to a Learning Outcome There is a clear separation between the Model, the View and the Controller
+The class containing the Model can perform no user interface, and the class containing the View can perform no calculations
+	
+1.0 pts
+	
+0.0 pts
+	
+1.0 pts
+This criterion is linked to a Learning Outcome All other assignment requirements are met
+	
+1.0 pts
+	
+0.0 pts
+	
+1.0 pts
+This criterion is linked to a Learning Outcome All program guidelines are adhered to
+	
+1.0 pts
+	
+0.0 pts
+	
+1.0 pts
+Total Points: 5.0

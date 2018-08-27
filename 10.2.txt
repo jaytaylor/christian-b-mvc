@@ -1,0 +1,12 @@
+
+10.2 User Events
+
+Up until now, the specific sequence of statements in our program has determined the order that things happen when our program executes. The user has been able to change the order that things happen to only a small extent, depending on console input and control statements like if or while in our code.
+
+But the order that things happen in a GUI application is determined by user events. Which button will the user press first? Which menu will the user pull down and which item on the menu will she choose? These user choices direct the flow of control of your program.
+
+This really changes the way that we code our programs. In a GUI application, our code places controls like Buttons onto a Frame and then simply waits for the user to click. The rest of the work of our program is responding to user events.
+
+Therefore, there are two steps to making a program respond to a user event: First, place the control (e.g. a Button) onto a GUI window(e.g. a Frame); and second, write the code that will be executed when the user fires an event on that control (e.g. the user clicks the Button.)
+
+Copyright © ,
